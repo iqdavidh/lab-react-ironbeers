@@ -4,6 +4,9 @@ import {Box, Menu} from 'grommet';
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 
 import SeccionHome from "./components/SeccionHome";
+import SeccionAllBeers from "./components/SeccionAllBeers";
+import SeccionNewBeer from "./components/SeccionNewBeer";
+import SeccionRandomBeer from "./components/SeccionRandomBeer";
 
 
 function App(props) {
@@ -34,9 +37,13 @@ function App(props) {
           />
         </Box>
         <Switch>
-          <Route path="/" component={SeccionHome}/>
+          <Route path="/" component={SeccionHome} exact/>
+          <Route path="/all" component={SeccionAllBeers} exact/>
+          <Route path="/new" component={SeccionNewBeer} exact/>
+          <Route path="/random" component={SeccionRandomBeer} exact/>
+          <Route path="/:id" component={SeccionRandomBeer} exact/>
         </Switch>
-        <p>sdfas</p>
+
 
 
       </BrowserRouter>
