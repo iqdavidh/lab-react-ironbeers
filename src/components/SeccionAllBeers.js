@@ -8,7 +8,7 @@ class SeccionAllBeers extends React.Component {
   }
 
   render() {
-    return <div>
+    return <div className="seccion">
       all
     </div>;
   }
