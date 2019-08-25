@@ -7,7 +7,7 @@ class ListaBeers extends Component {
     let props=this.props;
 
     let listaElem=props.lista.map( b=>{
-      return <div className="itemBeer" key={b.name}>
+      return <div className="itemBeer" key={b.id}>
 
         <div className="panImg">
           <img alt={b.name} src={b.image_url}/>

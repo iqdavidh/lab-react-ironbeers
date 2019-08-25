@@ -3728,18 +3728,22 @@ const lista = [{
 }
 ];
 
+let id=0;
+lista.forEach(b=>{
+  b.id=id;
+  id++;
+});
+
 const paginacion = 10;
 
 function getPagina(index) {
   let offset = (index - 1) * (paginacion);
 
-  if (offset > 0) {
-    offset--;
-  }
+
 
   let listaPagina = [];
   for (let i = 0; i < paginacion; i++) {
-    listaPagina.push(lista[offset + i])
+    listaPagina.push(lista[offset+i])
   }
 
   return listaPagina;
@@ -3750,10 +3754,15 @@ const DataLocal = {
     const respuesta = {
       success: true,
       msg: "",
-      data: {lista: getPagina(pagina)}
+      data: {
+        lista: getPagina(pagina),
+        totalItems: lista.length,
+        totalPag:  parseInt( Math.ceil(lista.length/paginacion))
+      }
     };
     return Promise.resolve(respuesta);
   }
 
-}
+};
+
 export default DataLocal;
