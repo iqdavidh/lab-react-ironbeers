@@ -3728,9 +3728,9 @@ const lista = [{
 }
 ];
 
-let id=0;
-lista.forEach(b=>{
-  b.id=id;
+let id = 0;
+lista.forEach(b => {
+  b.id = id;
   id++;
 });
 
@@ -3740,10 +3740,9 @@ function getPagina(index) {
   let offset = (index - 1) * (paginacion);
 
 
-
   let listaPagina = [];
   for (let i = 0; i < paginacion; i++) {
-    listaPagina.push(lista[offset+i])
+    listaPagina.push(lista[offset + i])
   }
 
   return listaPagina;
@@ -3757,7 +3756,22 @@ const DataLocal = {
       data: {
         lista: getPagina(pagina),
         totalItems: lista.length,
-        totalPag:  parseInt( Math.ceil(lista.length/paginacion))
+        totalPag: parseInt(Math.ceil(lista.length / paginacion))
+      }
+    };
+    return Promise.resolve(respuesta);
+  },
+  beerFromId: async (id) => {
+
+    let b = lista.find(b => {
+      return b.id === id
+    });
+
+    const respuesta = {
+      success: true,
+      msg: "",
+      data: {
+        beer: b
       }
     };
     return Promise.resolve(respuesta);

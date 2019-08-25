@@ -73,7 +73,7 @@ class SeccionAllBeers extends React.Component {
                 pageStart={0}
                 loadMore={this.loadBeers.bind(this)}
                 hasMore={this.state.hasMore}
-                loader={<div key={0}>Loading ...</div>}
+                loader={<div key={0}>Loading {this.state.lista.length}...</div>}
             >
               <ListaBeers lista={this.state.lista}/>
             </InfiniteScroll>
