@@ -1,52 +1,45 @@
 import React from 'react';
 import './App.css';
-import {Box, Grid, Grommet, Menu} from 'grommet';
-import SeccionAllBeers from "./components/SeccionAllBeers";
-import SeccionNewBeer from "./components/SeccionNewBeer";
-import SeccionRandomBeer from "./components/SeccionRandomBeer";
+import {Box, Menu} from 'grommet';
+import {BrowserRouter, Route, Switch} from "react-router-dom";
+
+import SeccionHome from "./components/SeccionHome";
 
 
-
-function App() {
+function App(props) {
   return (
 
 
-      <div>
+      <BrowserRouter>
+
 
         <Box gridArea="header" background="brand">
           <Menu
-              label="Menu"
+              label="Iron Beers"
               items={[
                 {
-                  label: 'All Beers', onClick: () => {
-                  }
+                  label: 'Home', href: "/"
                 },
                 {
-                  label: 'Random Beer', onClick: () => {
-                  }
+                  label: 'All Beers', href: "/"
                 },
                 {
-                  label: 'New Beer', onClick: () => {
-                  }
+                  label: 'Random Beer', href: "/"
                 },
-              ]}
+                {
+                  label: 'New Beer', href: "/"
+                },
+              ]
+              }
           />
         </Box>
-        <div className="row">
-          <div className="col-4">
-            <SeccionAllBeers />
-          </div>
-          <div className="col-4">
-            <SeccionNewBeer className="seccion"/>
-          </div>
-          <div className="col-4">
-            <SeccionRandomBeer className="seccion"/>
-          </div>
-
-        </div>
+        <Switch>
+          <Route path="/" component={SeccionHome}/>
+        </Switch>
+        <p>sdfas</p>
 
 
-      </div>
+      </BrowserRouter>
 
 
   );
