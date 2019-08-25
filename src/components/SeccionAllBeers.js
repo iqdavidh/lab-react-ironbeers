@@ -39,13 +39,13 @@ class SeccionAllBeers extends React.Component {
 
   render() {
 
-
     return <div className="row">
 
       <div className="seccion">
         <div className="col-12">
           <img src="../img/beers.png"/>
-          <h1>All Beers</h1>
+          <h1 className="tituloSeccion">All Beers</h1>
+
           <ListaBeers lista={this.state.lista}/>
         </div>
       </div>

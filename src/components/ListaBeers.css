@@ -1,0 +1,16 @@
+.itemBeer{
+ display: flex;
+   border-bottom :1px solid #c3c3c3;
+   margin: 5px 0;
+ }
+
+
+
+.itemBeer img{
+height: 200px;
+}
+
+
+.itemBeer .panImg{
+   width: 150px; text-align: center;
+}
