@@ -9,9 +9,10 @@ class SeccionHome extends React.Component {
   }
 
   render() {
-    return <div className="row ">
+    return <div className="columns ">
 
-          <div className="col-4 ">
+          <div className="column ">
+
             <div className="seccion">
 
               <NavLink to="/all">
@@ -30,7 +31,7 @@ class SeccionHome extends React.Component {
 
             </div>
           </div>
-          <div className="col-4 ">
+          <div className="column ">
             <div className="seccion">
 
               <NavLink to="/random">
@@ -47,7 +48,7 @@ class SeccionHome extends React.Component {
 
             </div>
           </div>
-          <div className="col-4 ">
+          <div className="column ">
             <div className="seccion">
 
               <NavLink to="/new">
