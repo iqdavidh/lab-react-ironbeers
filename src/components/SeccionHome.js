@@ -1,5 +1,6 @@
 import React from 'react';
 import {NavLink} from "react-router-dom";
+import {Box} from "grommet";
 
 
 class SeccionHome extends React.Component {
@@ -9,11 +10,11 @@ class SeccionHome extends React.Component {
   }
 
   render() {
-    return <div className="columns ">
+    return <div className="columns " >
 
           <div className="column ">
 
-            <div className="seccion">
+            <Box className="seccion" animation="fadeIn">
 
               <NavLink to="/all">
                 <img src="img/beers.png"/>
@@ -29,10 +30,10 @@ class SeccionHome extends React.Component {
                 auctor, nibh massa molestie sem, at accumsan diam lacus aliquet leo.</p>
 
 
-            </div>
+            </Box>
           </div>
           <div className="column ">
-            <div className="seccion">
+            <Box className="seccion" animation="fadeIn">
 
               <NavLink to="/random">
                 <img src="img/random-beer.png"/>
@@ -46,10 +47,10 @@ class SeccionHome extends React.Component {
                 facilisis ipsum auctor. Praesent nec magna vitae magna euismod vulputate. Mauris eget ullamcorper nibh, a
                 blandit nunc. Sed aliquam, nunc eget facilisis vulputate, massa magna tincidunt nisl, at u</p>
 
-            </div>
+            </Box>
           </div>
           <div className="column ">
-            <div className="seccion">
+            <Box className="seccion" animation="fadeIn">
 
               <NavLink to="/new">
                 <img src="img/new-beer.png"/>
@@ -60,7 +61,7 @@ class SeccionHome extends React.Component {
                 Mauris
                 vel metus ac odio vestibulum scelerisque at vel magna. Interdum et malesuada fames ac ante ipsum primis in
                 faucibus. Donec non posuere est. Vivamus eget dui ac quam faucibus laoreet nec sed lorem. </p>
-            </div>
+            </Box>
           </div>
 
         </div>

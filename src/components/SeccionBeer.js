@@ -37,7 +37,7 @@ class SeccionBeer extends Component {
     let b = this.state.beer;
 
     return (
-        <Box className="beerFull">
+        <Box className="beerFull" animation="fadeIn" pad="small">
           <div className="panImg">
             <img src={b.image_url} alt={b.name}/>
           </div>

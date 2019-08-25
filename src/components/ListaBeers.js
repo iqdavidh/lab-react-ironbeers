@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './ListaBeers.css';
 import {Link} from "react-router-dom";
+import {Box} from "grommet";
 
 class ListaBeers extends Component {
   render() {
@@ -11,7 +12,7 @@ class ListaBeers extends Component {
 
       let pathToView = "/beer/" + b.id.toString();
 
-      return <div className="itemBeer" key={b.id}>
+      return <Box className="itemBeer" key={b.id} animation="fadeIn">
 
         <div className="panImg">
           <Link to={pathToView}>
@@ -26,7 +27,7 @@ class ListaBeers extends Component {
           <p className="contributed">{b.contributed_by}</p>
         </div>
 
-      </div>
+      </Box>
 
 
     });

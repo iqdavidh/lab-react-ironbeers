@@ -3775,6 +3775,24 @@ const DataLocal = {
       }
     };
     return Promise.resolve(respuesta);
+  },
+  beerRandom: async () => {
+
+    let id= parseInt( Math.floor( Math.random() * lista.length));
+
+    let b = lista.find(b => {
+      return b.id === id
+    });
+
+    const respuesta = {
+      success: true,
+      msg: "",
+      data: {
+        id,
+        beer: b
+      }
+    };
+    return Promise.resolve(respuesta);
   }
 
 };
