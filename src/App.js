@@ -42,7 +42,7 @@ function App(props) {
             <Route path="/all" component={SeccionAllBeers} exact/>
             <Route path="/new" component={SeccionNewBeer} exact/>
             <Route path="/random" component={SeccionRandomBeer} exact/>
-            <Route path="/:id" component={SeccionRandomBeer} exact/>
+            <Route path="/beer/:id" component={SeccionRandomBeer} exact/>
           </Switch>
 
 

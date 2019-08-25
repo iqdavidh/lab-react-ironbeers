@@ -1,28 +1,37 @@
 import React, {Component} from 'react';
 import './ListaBeers.css';
+import {Link} from "react-router-dom";
 
 class ListaBeers extends Component {
   render() {
 
-    let props=this.props;
+    let props = this.props;
 
-    let listaElem=props.lista.map( b=>{
+    let listaElem = props.lista.map(b => {
+
+      let pathToView = "/beer/" + b.id.toString();
+
       return <div className="itemBeer" key={b.id}>
 
         <div className="panImg">
-          <img alt={b.name} src={b.image_url}/>
+          <Link to={pathToView}>
+            <img alt={b.name} src={b.image_url}/>
+          </Link>
         </div>
         <div>
-          <h4>{b.name}</h4>
+          <Link to={pathToView}>
+            <h4>{b.name}</h4>
+          </Link>
           <p>{b.tagline}</p>
-          <p className="contributed" >{b.contributed_by}</p>
-
+          <p className="contributed">{b.contributed_by}</p>
         </div>
 
       </div>
+
+
     });
     return (
-        <div >
+        <div>
           {listaElem}
         </div>
     );
