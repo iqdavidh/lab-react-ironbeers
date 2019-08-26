@@ -1,10 +1,35 @@
 import React, {Component} from 'react';
-import {Box, Button, FormField, Select, CheckBox, RadioButtonGroup, TextInput, TextArea} from "grommet";
+import {Form,Box, Button, FormField, Select, CheckBox, RadioButtonGroup, TextInput, TextArea} from "grommet";
 
 
 
 
 class SeccionNewBeer extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      name:'n',
+      tagline:'t',
+      description:'des',
+      first_brewed:'f',
+      attenuation_level:'at',
+      contributed_by:'c'
+    };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({value: event.target.value});
+  }
+
+  handleSubmit(event) {
+    alert('A name was submitted: ' + this.state.value);
+    event.preventDefault();
+  }
+
 
   render() {
     return (
@@ -12,30 +37,19 @@ class SeccionNewBeer extends Component {
 
           <h1>Agregar Cerveza</h1>
 
-          <form onSubmit={({ value }) => console.log("Submit: ", value)}>
+          <Form onSubmit={({ value }) => console.log("Submit: ", value)}>
 
-            <FormField name="name" label="Nombre" required={true} >
-              <TextInput/>
-            </FormField>
-            <FormField name="tagline" label="Tagline" required={true} >
-              <TextInput/>
-            </FormField>
-            <FormField name="description" label="Description" required={true} >
-              <TextArea/>
-            </FormField>
-            <FormField name="first_brewed" label="first_brewed"  >
-              <TextInput/>
-            </FormField>
-            <FormField name="attenuation_level" label="attenuation_level"  >
-              <TextInput/>
-            </FormField>
-            <FormField name="contributed_by" label="contributed_by"  >
-              <TextInput/>
-            </FormField>
+            <FormField name="name" label="Nombre" required={true} />
+            <FormField name="tagline" label="Tagline" required={true} />
+            <FormField name="description" label="Description" required={true} />
+            <FormField name="first_brewed" label="first_brewed"  />
+            <FormField name="attenuation_level" label="attenuation_level"  />
+            <FormField name="contributed_by" label="contributed_by"  />
 
-
-            <Button type="submit" label="Submit" primary={true} />
-          </form>
+            <Button type="submit" label="Submit" primary={true}
+             onClick={e=>this.handleFormSubmit(e)}
+            />
+          </Form>
         </Box>
     );
   }
