@@ -2,6 +2,7 @@ import React from 'react';
 import DataService from "../servicios/DataService";
 import ListaBeers from "./ListaBeers";
 import InfiniteScroll from 'react-infinite-scroller';
+import StateService, {NUM_BEERS} from "../servicios/StateService";
 
 
 class SeccionAllBeers extends React.Component {
@@ -19,6 +20,16 @@ class SeccionAllBeers extends React.Component {
       totalPaginas: 0,
       hasMore: true
     };
+
+
+
+    let onUpdateNumBeers=(num)=>{
+      this.setState({totalItems:num})
+    };
+
+    onUpdateNumBeers.bind(this);
+    StateService.addListener(NUM_BEERS,onUpdateNumBeers);
+
 
 
     this.loadBeers.bind(this);
@@ -48,9 +59,10 @@ class SeccionAllBeers extends React.Component {
       self.setState({
         pagina,
         lista: listaOld,
-        totalPaginas:data.totalPag,
-        totalItems:data.totalItems
+        totalPaginas:data.totalPag
       });
+
+      StateService.setData(NUM_BEERS , data.totalItems);
 
       return listaOld;
     });

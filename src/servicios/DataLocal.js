@@ -3778,7 +3778,7 @@ const DataLocal = {
   },
   beerRandom: async () => {
 
-    let id= parseInt( Math.floor( Math.random() * lista.length));
+    let id = parseInt(Math.floor(Math.random() * lista.length));
 
     let b = lista.find(b => {
       return b.id === id
@@ -3793,7 +3793,25 @@ const DataLocal = {
       }
     };
     return Promise.resolve(respuesta);
+  },
+  addBeer: async (data) => {
+    let beer = {...data};
+
+    beer.id = lista.length + 1;
+    lista.push(beer);
+
+    const respuesta = {
+      success: true,
+      msg: "",
+      data: {
+        id
+      }
+    };
+
+    return Promise.resolve(respuesta);
+
   }
+
 
 };
 

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Form, Box, Button, FormField, Select, CheckBox, RadioButtonGroup, TextInput, TextArea} from "grommet";
+import DataService from "../servicios/DataService";
 
 
 class SeccionNewBeer extends Component {
@@ -46,17 +47,29 @@ class SeccionNewBeer extends Component {
   onSubmit = event => {
     event.preventDefault();
 
-    this.setState(
-        {
-          name: '',
-          tagline: '',
-          description: '',
-          first_brewed: '',
-          attenuation_level: '',
-          contributed_by: '',
-          isValid: false
-        }
-    );
+    //agregar al DataService
+
+    DataService.addBeer(this.state)
+        .then(respuesta => {
+
+          this.setState(
+              {
+                name: '',
+                tagline: '',
+                description: '',
+                first_brewed: '',
+                attenuation_level: '',
+                contributed_by: '',
+                isValid: false
+              }
+          );
+
+          this.render();
+
+        })
+    ;
+
+
   };
 
 
@@ -71,40 +84,35 @@ class SeccionNewBeer extends Component {
             <FormField name="name"
                        label="Nombre"
                        required={true}
-                       value={this.state.name}
+
                        onChange={this.onNameChange}
             />
 
             <FormField name="tagline"
                        label="Tagline"
                        required={true}
-                       value={this.state.tagline}
                        onChange={this.onTagNameChange}
             />
 
             <FormField name="description"
                        label="Description"
                        required={true}
-                       value={this.state.description}
                        onChange={this.onDescriptionChange}
 
             />
 
             <FormField name="first_brewed"
                        label="first_brewed"
-                       value={this.state.first_brewed}
                        onChange={this.onFirstBrewedChange}
             />
 
             <FormField name="attenuation_level"
                        label="attenuation_level"
-                       value={this.state.attenuation_level}
                        onChange={this.onAttLevelChange}
             />
 
             <FormField name="contributed_by"
                        label="contributed_by"
-                       value={this.state.contributed_by}
                        onChange={this.onContributedChange}
             />
 
